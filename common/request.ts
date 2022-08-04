@@ -3,7 +3,7 @@ import axios from 'axios'
 const request = axios.create({
     baseURL: `https://lillycn.veevanetwork.com`, // prd
     // baseURL: `https://sandbox.veevanetwork.com`, // qa
-    timeout: 6e3,
+    timeout: 20e3,
 });
 
 

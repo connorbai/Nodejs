@@ -55,6 +55,7 @@ export class DataSource {
         const [sqlResult] = await conn.manager.query(`SELECT MAX(versionnumber) FROM cmd_owner.veeva_origin_data`)
         const { max: maxVersion } = sqlResult || {}
         this._version = (maxVersion || 0) + 1;
+        console.log('----------version-------------', this._version)
     }
 
     async getVersion() {

@@ -33,6 +33,7 @@ class Hco {
         // Truncate Table
         await conn.query(SQL.SrcDeleteData)
         await conn.query(SQL.SrcResetSequence)
+        console.log('-----------Truncate Table------------', )
 
         const jsonEntities = await conn.manager.find(Entities.VeevaOriginDataEntity, { where: { versionNumber: version }})
         // handle
@@ -193,10 +194,10 @@ export const main = async () => {
     // const res = await fetchDataByIds()
 
     // const hco = new Hco()
-    // await hco.transformHco({ version: 4 })
+    // await hco.transformHco({ version: 21 })
 
     const hcp = new Hcp()
-    await hcp.transformHcp({ version: 8 })
+    await hcp.transformHcp({ version: 17 })
 }
 
 
