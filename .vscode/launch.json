@@ -17,6 +17,6 @@
         { "type": "node", "request": "launch", "name": "moment", "env": { "TS_NODE_TRANSPILE_ONLY": "true" }, "runtimeArgs": [ "-r", "ts-node/register" ], "args": [ "${workspaceFolder}/src/moment/index.ts" ] },
         { "type": "node", "request": "launch", "name": "HCPHCO", "env": { "TS_NODE_TRANSPILE_ONLY": "true" }, "runtimeArgs": [ "-r", "ts-node/register" ], "args": [ "${workspaceFolder}/src/hco_hcp/index.ts" ] },
         { "type": "node", "request": "launch", "name": "Tree", "env": { "TS_NODE_TRANSPILE_ONLY": "true" }, "runtimeArgs": [ "-r", "ts-node/register" ], "args": [ "${workspaceFolder}/src/tree/index.ts" ] },
-        { "type": "node", "request": "launch", "name": "Tree", "env": { "TS_NODE_TRANSPILE_ONLY": "true" }, "runtimeArgs": [ "-r", "ts-node/register" ], "args": [ "${workspaceFolder}/src/tree/index.ts" ] },
+        { "type": "node", "request": "launch", "name": "TransformSiemens", "env": { "TS_NODE_TRANSPILE_ONLY": "true" }, "runtimeArgs": [ "-r", "ts-node/register" ], "args": [ "${workspaceFolder}/src/import_excel/index.ts" ] },
     ]
 }
