@@ -6,8 +6,11 @@ import _ from 'lodash'
 import sqlstring from 'sqlstring'
 import 'dotenv/config'
 
-// set prefix to execute progame.
-const prefix = 'QianYongQiang'
+// set prefix to execute progame.   
+/**
+ * BiRongLe/QianYongQiang
+ */
+const prefix = 'BiRongLe'
 
 const UserMapping = {
     BiRongLe: '8a5f6390f5dc434cb8b36c30f2743e6e',
@@ -39,8 +42,10 @@ export async function main() {
     const dirs = fsx.readdirSync(SOURCE_DIR)
 
     for (const filename of dirs) {
+        if(filename == ".DS_Store") continue;
         const filePath = `${SOURCE_DIR}/${filename}`
         const donePath = `${DONE_DIR}/${filename}`
+        const backupPathName = `${DONE_DIR}/${filename}_____V2`
         try {
             const sheets = xlsx.parse(filePath, { raw: false })
             const sheet = sheets.find(sheet => sheet.data[0].some((v: any) => v.includes("检查报告")))
@@ -50,11 +55,14 @@ export async function main() {
             const supplierIndex = data.findIndex((row: any[]) => row?.[0]?.includes("供应商"))
             if(supplierIndex == -1) throw new Error(`${filename} supplierIndex can't find.`)
             // supplierIndex
-            const appearanceIndex = data.findIndex((row: any[]) => row?.[0]?.includes("外观项目"))
-            if(appearanceIndex == -1) throw new Error(`${filename} appearanceIndex can't find.`)
-            // supplierIndex
             const sizeIndex = data.findIndex((row: any[]) => row?.[0]?.includes("尺寸项目"))
             if(sizeIndex == -1) throw new Error(`${filename} sizeIndex can't find.`)
+            // supplierIndex
+            let appearanceIndex = data.findIndex((row: any[]) => row?.[0]?.includes("外观项目"))
+            if(appearanceIndex == -1) {
+                appearanceIndex = sizeIndex;
+                // throw new Error(`${filename} appearanceIndex can't find.`)
+            }
             // remarkIndex
             const DecisionIndex = data.findIndex((row: any[]) => row?.[0]?.includes("结论"))
             if(DecisionIndex == -1) throw new Error(`${filename} DecisionIndex can't find.`)
@@ -157,12 +165,13 @@ export async function main() {
                 await conn.query(sqlstring.format(`INSERT INTO SIEMENS_QM_DP.dbo.inspection_material_template_ctx
                     (id, material_template_id, item_type, series_number, item_name, del_flag, unit)
                     VALUES(?,?,?,?,?,?,?);`, 
-                    [uuid(), templateUUID, '001', index+1, sizeName, '0', '002']))
+                    [uuid(), templateUUID, '002', index+1, sizeName, '0', '002']))
                 console.log(`added 1 sizeName`)
             }
 
             fsx.ensureDir(DONE_DIR)
-            fsx.moveSync(filePath, donePath)
+            const exists = fsx.pathExistsSync(donePath)
+            fsx.moveSync(filePath, exists ? backupPathName : donePath)
         } catch (err) {
             console.log('------------filename-----------:', filename);
             console.log('------------err-----------:', err);
