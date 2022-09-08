@@ -1,4 +1,4 @@
-import cron from 'cron'
+import cron from 'cron-parser'
 import moment from 'moment';
 
 
