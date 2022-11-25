@@ -112,17 +112,76 @@ export class MSrcHcoModel {
     @Expose()
     public prvncCd: string;
 
-    @Expose({ name: 'record_state__v' })
-    rcrdStateCd: string;
+    // 2022-7-19 added
+    @Expose({ name: 'alternate_name_2__v' })
+    public hcoDesc2: string;
+
+    @Expose({ name: 'alternate_name_3__v' })
+    public hcoDesc3: string;
+
+    @Expose({ name: 'organization_id__v' })
+    public organizationId: string;
+
+    @Expose({ name: 'count_discharged_patients__v' })
+    public countDischargedPatients: string;
+
+    @Expose({ name: 'established_date__v' })
+    public establishedDate: string;
+
+    @Expose({ name: 'count_employees__v' })
+    public countEmployees: string;
+
+    @Expose({ name: 'major_class_of_trade__v' })
+    public majorClassOfTrade: string;
+
+    @Expose({ name: 'status_update_time__v' })
+    @Transform((value) => (value ? moment(value).toDate() : null))
+    public statusUpdateTime: Date;
+
+    @Expose({ name: 'hospital_grade__v' })
+    public hospitalGrade: string;
+
+    @Expose({ name: 'record_version__v' })
+    public recordVersion: string;
+
+    @Expose({ name: 'department_class__v' })
+    public departmentClass: string;
+
+    // @Expose({ name: 'premise__v' })
+    public premise: string;
+
+    // @Expose({ name: 'delivery_address__v' })
+    public deliveryAddress: string;
+
+    // @Expose({ name: 'delivery_address_1__v' })
+    public deliveryAddress_1: string;
+
+    // @Expose({ name: 'thoroughfare__v' })
+    public thoroughfare: string;
+
+    // @Expose({ name: 'address_ordinal__v' })
+    public addressOrdinal: string;
+
+    // @Expose({ name: 'latitude__v' })
+    public latitude: number;
+
+    // @Expose({ name: 'longitude__v' })
+    public longitude: number;
+
+    // @Expose({ name: 'created_date__v' })
+    public adrsCrtDt: Date;
+
+    // @Expose({ name: 'modified_date__v' })
+    public adrsUpdtDt: Date;
 
     setAddress() {
         if (this.addresses && this.addresses.length > 0) {
             const address = _.find(this.addresses, (item: any) => {
                 return item.is_veeva_master__v === true && item.record_state__v === 'VALID' &&
-                (item.address_status__v === 'ACTV' || item.address_status__v === 'A');
+                    (item.address_status__v === 'ACTV' || item.address_status__v === 'A');
             });
             if (address) {
-                const msrcHcoAddressModel: InstanceType<typeof MSrcHcoAddressModel> = plainToClass(
+                const msrcHcoAddressModel: MSrcHcoAddressModel = plainToClass(
                     MSrcHcoAddressModel,
                     address,
                 );
@@ -134,6 +193,17 @@ export class MSrcHcoModel {
                 this.frmtAdrs = msrcHcoAddressModel.formattedAddress;
                 this.pstl = msrcHcoAddressModel.pstl;
                 this.prvncCd = msrcHcoAddressModel.prvncCd;
+                Object.assign(this, {
+                    premise: msrcHcoAddressModel.premise,
+                    deliveryAddress: msrcHcoAddressModel.deliveryAddress,
+                    deliveryAddress_1: msrcHcoAddressModel.deliveryAddress_1,
+                    thoroughfare: msrcHcoAddressModel.thoroughfare,
+                    addressOrdinal: msrcHcoAddressModel.addressOrdinal,
+                    latitude: msrcHcoAddressModel.latitude,
+                    longitude: msrcHcoAddressModel.longitude,
+                    adrsCrtDt: msrcHcoAddressModel.adrsCrtDt,
+                    adrsUpdtDt: msrcHcoAddressModel.adrsUpdtDt,
+                })
             }
         }
     }
@@ -145,7 +215,7 @@ export class MSrcHcoModel {
                     (item.parent_hco_status__v === 'ACTV' || item.parent_hco_status__v === 'A');
             });
             if (parentHco) {
-                const msrcHcoParentModel: InstanceType<typeof MSrcHcoParentModel> = plainToClass(
+                const msrcHcoParentModel: MSrcHcoParentModel = plainToClass(
                     MSrcHcoParentModel,
                     parentHco,
                 );

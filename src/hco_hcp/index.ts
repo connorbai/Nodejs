@@ -72,6 +72,8 @@ class Hco {
                 sttsInd: currHco.hcoSttsCd === 'A' || currHco.hcoSttsCd === 'U' ? 1 : 0,
                 createdDate: new Date(currHco.crtDt),
                 createdUser: 'system',
+                hospitalGradeName: codeMap['HCOHospitalGrade'][currHco.hospitalGrade],
+                departmentClassName: codeMap['DepartmentClass'][currHco.departmentClass],
             })            
             const prvncObj = _.find(prvncList, { prvncCd: currHco.prvncCd });
             currHco.prvncName = prvncObj.prvncName || null;
@@ -193,11 +195,11 @@ export const main = async () => {
     // const res = await fetchDataByUrl()
     // const res = await fetchDataByIds()
 
-    // const hco = new Hco()
-    // await hco.transformHco({ version: 21 })
+    const hco = new Hco()
+    await hco.transformHco({ version: 24 })
 
-    const hcp = new Hcp()
-    await hcp.transformHcp({ version: 17 })
+    // const hcp = new Hcp()
+    // await hcp.transformHcp({ version: 17 })
 }
 
 

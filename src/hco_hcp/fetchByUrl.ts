@@ -5,6 +5,7 @@ import { DataSource } from './dataSource';
 
 
 const hcpUrl = 'https://lillycn.veevanetwork.com/api/v16.0/search?q=*&offset=0&limit=100&types=HCP&sort=master_vid__v&filters=range||modified_date__v:1658826000000||1658912400000~primary_country__v:CN~record_state__v:VALID&includeMasterResults=false'
+// modified_date__v
 const hcoUrl = 'https://lillycn.veevanetwork.com/api/v16.0/search?q=*&offset=0&limit=100&types=HCO&sort=master_vid__v&filters=range||modified_date__v:1658826000000||1658912400000~primary_country__v:CN~record_state__v:VALID&includeMasterResults=false'
 const HCO_URL = 'https://lillycn.veevanetwork.com/api/v16.0/hcos/Network:Entity:{VEEVA_ENTITY_ID}'
 const HCP_URL = 'https://lillycn.veevanetwork.com/api/v16.0/hcps/Network:Entity:{VEEVA_ENTITY_ID}'
