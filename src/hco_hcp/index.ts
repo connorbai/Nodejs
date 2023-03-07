@@ -70,8 +70,12 @@ class Hco {
                 hcoSttsName: codeMap?.['HCOStatus']?.[currHco.hcoSttsCd],
                 hcoTypeName: codeMap?.['HCOType']?.[currHco.hcoTypeCd],
                 sttsInd: currHco.hcoSttsCd === 'A' || currHco.hcoSttsCd === 'U' ? 1 : 0,
-                createdDate: new Date(currHco.crtDt),
+                crtDt: new Date(currHco.crtDt),
+                updtDt: new Date(currHco.updtDt),
+                createdDate: new Date(),
                 createdUser: 'system',
+                modifiedDate: new Date,
+                modifiedUser: 'system',
                 hospitalGradeName: codeMap['HCOHospitalGrade'][currHco.hospitalGrade],
                 departmentClassName: codeMap['DepartmentClass'][currHco.departmentClass],
             })            
@@ -193,13 +197,13 @@ export const main = async () => {
     // await dataSource.fetchData();
     
     // const res = await fetchDataByUrl()
-    // const res = await fetchDataByIds()
+    const res = await fetchDataByIds()
 
-    const hco = new Hco()
-    await hco.transformHco({ version: 24 })
+    // const hco = new Hco()
+    // await hco.transformHco({ version: 31 })
 
     // const hcp = new Hcp()
-    // await hcp.transformHcp({ version: 17 })
+    // await hcp.transformHcp({ version: 32 })
 }
 
 
