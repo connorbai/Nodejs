@@ -200,7 +200,7 @@ export const main = async () => {
     const res = await fetchDataByIds()
 
     // const hco = new Hco()
-    // await hco.transformHco({ version: 31 })
+    // await hco.transformHco({ version: 36 })
 
     // const hcp = new Hcp()
     // await hcp.transformHcp({ version: 32 })
