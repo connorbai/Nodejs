@@ -136,7 +136,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Format File",
+            "name": "Veeva Dict",
             "env": {
                 "TS_NODE_TRANSPILE_ONLY": "true"
             },
@@ -145,7 +145,7 @@
                 "ts-node/register"
             ],
             "args": [
-                "${workspaceFolder}/src/format_file/index.ts"
+                "${workspaceFolder}/src/veeva_dict/index.ts"
             ]
         },
     ]

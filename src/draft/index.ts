@@ -12,6 +12,9 @@ export async function main() {
     let r: any;
     let r1: any;
 
+    r = /[0-9]+/.test('')
+    r = '9' > 0
+
     r = _('{"a": 1,"b":2, "c": 3}').value()
 
     r = moment("2023-01-17 16:00:00").utc().valueOf();

@@ -37,6 +37,7 @@ export const fetchDataByUrl = async () => {
     console.log('----------totalCount,PageSize-------------', totalCount, pageSize)
     
 
+
     
     for (const pageIndex of pageIndexArray) {
         console.log('----------limit,offset,pageIndex-------------', 100, (pageIndex - 1) * 100, pageIndex)

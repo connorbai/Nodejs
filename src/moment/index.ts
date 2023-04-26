@@ -16,13 +16,22 @@ export function main() {
     const r4 = NaN <= r5;
     // const result = expired.isAfter(moment())
     // console.log('----------result-------------', result)
-
+    
     const d = new Date()
     const end = moment().add(11, 'seconds')
     console.log('----------end.formNow()-------------', end.diff(moment(), 'seconds'))
-
+    
     var time= moment.utc(3661000).format('Elapsed Time: {HH} hours: mm minutes: ss seconds');
     console.log(time) // 01:01:01
+    
+    
+    // console.log('----------result-------------', result)
+    let r = moment(1679500800000)
+
+    r = r.toDate()
+
+    console.log('----------r-------------', r)
+
 
 
 }
