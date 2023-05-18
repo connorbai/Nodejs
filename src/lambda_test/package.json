@@ -2,7 +2,7 @@
   "name": "lambda_layer",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "moment": "^2.29.4",
+    "pg": "^8.10.0",
     "typeorm": "^0.3.15"
   }
 }

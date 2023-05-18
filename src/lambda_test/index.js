@@ -1,6 +1,8 @@
-const AWS = require('aws-sdk')
+// const AWS = require('aws-sdk')
 const { createConnection } = require("typeorm")
 const moment = require('moment')
+
+
 const {
     env: {
         DATABASE_HOST: host,
@@ -22,17 +24,15 @@ exports.handler = async () => {
             password,
             database,
             schema,
-            entities,
+            // entities,
+            ssl: false,
         })
 
-        const updtDt = moment(1679500800000).toDate()
-        console.log('updtDt: ', updtDt.formart('YYYY-MM-DD HH:mm:ss'))
+        // const updtDt = moment(1679500800000)// .toDate()
+        // console.log('updtDt: ', updtDt.format('YYYY-MM-DD HH:mm:ss'))
 
 
-        const result = conn.query(`
-            SELECT * FROM CMD_OWNER.M_SRC_HCO WHERE UPDT_DT > $1
-            ORDER BY UPDT_DT DESC
-        `, [updtDt])
+        const result = await conn.query(`SELECT * FROM CMD_OWNER.M_SRC_HCO`)
 
         console.log(result.length)
 

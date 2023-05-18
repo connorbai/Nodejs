@@ -1,0 +1,197 @@
+[
+    {
+        "code": "T",
+        "zh": "技师",
+        "en": "Technician"
+    },
+    {
+        "code": "VCD",
+        "zh": "副主任医师",
+        "en": "Vice Chief Doctor"
+    },
+    {
+        "code": "VCP",
+        "zh": "副主任药师",
+        "en": "Vice Chief Pharmacist"
+    },
+    {
+        "code": "AN",
+        "zh": "护士",
+        "en": "Assistant Nurse"
+    },
+    {
+        "code": "N",
+        "zh": "护师",
+        "en": "Nurse"
+    },
+    {
+        "code": "VCN",
+        "zh": "副主任护师",
+        "en": "Vice Chief Nurse"
+    },
+    {
+        "code": "M",
+        "zh": "按摩师",
+        "en": "Masseuse"
+    },
+    {
+        "code": "VCCLE",
+        "zh": "检验副主任技师",
+        "en": "Vice Chief Clinical Laboratory Examiner"
+    },
+    {
+        "code": "VCT",
+        "zh": "副主任技师",
+        "en": "Vice Chief Technician"
+    },
+    {
+        "code": "DIET",
+        "zh": "营养师",
+        "en": "Dietician"
+    },
+    {
+        "code": "VCANE",
+        "zh": "副主任麻醉师",
+        "en": "Vice Chief Anesthesiologist"
+    },
+    {
+        "code": "OTHER",
+        "zh": "其他",
+        "en": "Other"
+    },
+    {
+        "code": "ANEIC",
+        "zh": "主管麻醉师",
+        "en": "Anesthesiologist-in-charge"
+    },
+    {
+        "code": "PIT",
+        "zh": "进修医生",
+        "en": "Physician in Training"
+    },
+    {
+        "code": "CANE",
+        "zh": "主任麻醉师",
+        "en": "Chief Anesthesiologist"
+    },
+    {
+        "code": "I",
+        "zh": "实习医生",
+        "en": "Intern"
+    },
+    {
+        "code": "ACLE",
+        "zh": "检验技士",
+        "en": "Assistant Clinical Laboratory Examiner"
+    },
+    {
+        "code": "RD",
+        "zh": "住院医师",
+        "en": "Resident Doctor"
+    },
+    {
+        "code": "CLEIC",
+        "zh": "检验主管技师",
+        "en": "Chief Laboratory Examiner-in-charge"
+    },
+    {
+        "code": "ATD",
+        "zh": "主治医师",
+        "en": "Attending Doctor"
+    },
+    {
+        "code": "CCLE",
+        "zh": "检验主任技师",
+        "en": "Chief Clinical Laboratory Examiner"
+    },
+    {
+        "code": "CT",
+        "zh": "主任技师",
+        "en": "Chief Technician"
+    },
+    {
+        "code": "CD",
+        "zh": "主任医师",
+        "en": "Chief Doctor"
+    },
+    {
+        "code": "CP",
+        "zh": "主任药师",
+        "en": "Chief Pharmacist"
+    },
+    {
+        "code": "PIC",
+        "zh": "主管药师",
+        "en": "Pharmacist-in-charge"
+    },
+    {
+        "code": "TIC",
+        "zh": "主管技师",
+        "en": "Technician-in-charge"
+    },
+    {
+        "code": "CN",
+        "zh": "主任护师",
+        "en": "Chief Nurse"
+    },
+    {
+        "code": "DIC",
+        "zh": "主管医师",
+        "en": "Doctor-in-charge"
+    },
+    {
+        "code": "STAT",
+        "zh": "统计师",
+        "en": "Statistician"
+    },
+    {
+        "code": "ANE",
+        "zh": "麻醉师",
+        "en": "Anesthesiologist"
+    },
+    {
+        "code": "NIC",
+        "zh": "主管护师",
+        "en": "Nurse-in-charge"
+    },
+    {
+        "code": "AP",
+        "zh": "药士",
+        "en": "Assistant Pharmacist"
+    },
+    {
+        "code": "P",
+        "zh": "药师",
+        "en": "Pharmacist"
+    },
+    {
+        "code": "AD",
+        "zh": "医士",
+        "en": "Assistant Doctor"
+    },
+    {
+        "code": "D",
+        "zh": "医师",
+        "en": "Doctor"
+    },
+    {
+        "code": "CLE",
+        "zh": "检验技师",
+        "en": "Clinical Laboratory Examiner"
+    },
+    {
+        "code": "AT",
+        "zh": "技士",
+        "en": "Assistant Technician"
+    },
+    {
+        "code": "C",
+        "zh": "美容师",
+        "en": "Cosmetologist"
+    },
+    {
+        "code": "TP",
+        "zh": "康复治疗师",
+        "en": "Therapist"
+    }
+]

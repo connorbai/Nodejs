@@ -15,16 +15,24 @@ export async function main() {
         "username": "postgres",
         "password": "Win2008",
         "entities": Object.values(Entities),
+        logging: 'all'
     })
 
-    const veevaEntityRepository = conn.getRepository(Entities.VeevaHcpEntity)
+    // const veevaEntityRepository = conn.getRepository(Entities.VeevaHcpEntity)
 
-    const veevaEntity = await veevaEntityRepository.findOne({ where: { id: 74 }})
+    // const veevaEntity = await veevaEntityRepository.findOne({ where: { id: 74 }})
 
-    veevaEntity.createdDate = null;
-    veevaEntity.createdUser = null;
+    // veevaEntity.createdDate = null;
+    // veevaEntity.createdUser = null;
 
-    const res = await veevaEntityRepository.save([veevaEntity])
+    // const res = await veevaEntityRepository.save([veevaEntity])
+
+
+    const res = await conn.query(`SELECT * FROM CMD_OWNER.M_HCO WHERE HCO_ID IN (:$...1)`, [[20000003,20000004,20000006]])
+    
 
     console.log('----------res-------------', res)
 }
+
+
+main()

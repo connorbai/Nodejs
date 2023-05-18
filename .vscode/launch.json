@@ -148,5 +148,20 @@
                 "${workspaceFolder}/src/veeva_dict/index.ts"
             ]
         },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "repository",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/repository/index.ts"
+            ]
+        },
     ]
 }
