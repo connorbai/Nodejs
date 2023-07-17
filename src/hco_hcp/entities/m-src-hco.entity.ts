@@ -1,6 +1,6 @@
 import { MSrcHcoModel } from "../model";
 import { Column, Entity } from "typeorm";
-import { BaseEntity } from "./base.entity";
+import { BaseEntity } from "../../entities/base.entity";
 
 
 @Entity({ schema: 'cmd_owner', name: 'm_src_hco' })

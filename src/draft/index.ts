@@ -30,11 +30,22 @@ export async function main() {
 
     r = _.groupBy(data, 'prdct_id')
 
+    r = getTCnCodeInEntityManager('CN70331')
 
     // result = moment(new Date('2022-12-04 21:31:44.106')).format('YYYY-MM-DD HH:mm:ss')
     // result = divide(2000.7789, 345.6787687)
+
+
     console.log('----------result-------------', r)
 }
 
 
 main()
+
+
+function getTCnCodeInEntityManager(cnCode) {
+    const newCnCodeValue = _.toNumber(cnCode.slice(2));
+    const newValue = (new Array(5).join('0') + (newCnCodeValue + 1)).slice(-5);
+    cnCode = `CN${newValue}`;
+    return cnCode;
+}
