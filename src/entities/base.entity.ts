@@ -22,3 +22,5 @@ export abstract class BaseModel extends BaseEntity {
   @VersionColumn({ name: "versionnumber", nullable: true })
   public versionNumber?: number;
 }
+
+export { BaseEntity };

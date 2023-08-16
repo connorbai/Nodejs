@@ -1,11 +1,11 @@
 import { MSrcHcoModel } from "../model";
-import { Column, Entity } from "typeorm";
+import { Column, Entity, PrimaryColumn } from "typeorm";
 import { BaseEntity } from "../../entities/base.entity";
 
 
 @Entity({ schema: 'cmd_owner', name: 'm_src_hco' })
 export class MSrcHcoEntity extends BaseEntity {
-    @Column({ name: 'hco_id' })
+    @PrimaryColumn({ name: 'hco_id' })
     public hcoId: number;
 
     @Column({ name: 'hco_name', length: 1000, nullable: true })

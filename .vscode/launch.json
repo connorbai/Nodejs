@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\index.ts"
+            "program": "${workspaceFolder}/index.js"
         },
         {
             "type": "node",
@@ -161,6 +161,36 @@
             ],
             "args": [
                 "${workspaceFolder}/src/repository/index.ts"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "redis",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/redis_1/index.ts"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "stream",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/stream/index.ts"
             ]
         },
     ]

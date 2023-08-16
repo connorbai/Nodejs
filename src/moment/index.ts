@@ -4,6 +4,12 @@ import _ from 'lodash'
 export function main() {
 
 
+
+    let r6 = moment().add(1, 'hours').isAfter()
+    console.log('r6: ', r6);
+    
+
+
     const termination_date = ''
     const no = _.toNumber(termination_date);
     const reslut = !!termination_date && _.toNumber(termination_date) <= _.toNumber(moment().utc().add(8, 'h').format('YYYYMMDD'))
