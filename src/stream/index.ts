@@ -1,6 +1,8 @@
 import assert from 'assert';
-import fs, { createReadStream, createWriteStream } from 'fs';
-import stream, { PassThrough, Writable } from 'stream';
+import { Resolver } from 'dns/promises';
+import fs, { createReadStream, createWriteStream, WriteStream } from 'fs';
+import { test } from 'node:test';
+import stream, { Duplex, PassThrough, Readable, Writable } from 'stream';
 import { finished, pipeline } from 'stream/promises';
 import zlib, { createGzip } from 'zlib';
 
@@ -17,10 +19,15 @@ const main = async () => {
     // pass()
     // readable1()
     // readable2()
-    pipe1()
+    // pipe1()
+    // data1()
+    // readable4()
+    // duplex1()
+    let chunk
+    chunk |= 0;
+
 }
 main()
-
 
 
 async function stream1() {
@@ -190,6 +197,24 @@ function readable3() {
     });
 }
 
+// async function readable4() {
+//     // With a synchronous mapper.
+// for await (const chunk of Readable.from([1, 2, 3, 4]).map((x) => x * 2)) {
+//     console.log(chunk); // 2, 4, 6, 8
+//   }
+//   // With an asynchronous mapper, making at most 2 queries at a time.
+//   const resolver = new Resolver();
+//   const dnsResults = Readable.from([
+//     'nodejs.org',
+//     'openjsf.org',
+//     'www.linuxfoundation.org',
+//   ]).map((domain) => resolver.resolve4(domain), { concurrency: 2 });
+//   for await (const result of dnsResults) {
+//     console.log(result); // Logs the DNS result of resolver.resolve4.
+//   } 
+// }
+
+
 
 function pipe1() {
     const r = fs.createReadStream('filename.txt');
@@ -197,3 +222,44 @@ function pipe1() {
     const w = fs.createWriteStream('file.txt.gz');
     r.pipe(z).pipe(w);
 }
+
+
+function data1() {
+    const readable = fs.createReadStream('filename.txt')
+    readable.setEncoding('utf8');
+    readable.on('data', (chunk) => {
+        assert.equal(typeof chunk, 'string');
+        console.log('Got %d characters of string data:', chunk.length);
+    });
+}
+
+function getReadableStreamSomehow() {
+    return fs.createReadStream('filename.txt')
+}
+
+
+// async function duplex1() {
+//     const readable = new ReadableStream({
+//         start(controller) {
+//           controller.enqueue('world');
+//         },
+//       });
+      
+//       const writable = new WritableStream({
+//         write(chunk) {
+//           console.log('writable', chunk);
+//         },
+//       });
+      
+//       const pair = {
+//         readable,
+//         writable,
+//       };
+//       const duplex = Duplex.fromWeb(pair, { encoding: 'utf8', objectMode: true });
+      
+//       duplex.write('hello');
+      
+//       for await (const chunk of duplex) {
+//         console.log('readable', chunk);
+//       }
+// }

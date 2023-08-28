@@ -37,4 +37,4 @@ main()
     })
 
 
-import('fs').then(f => f.writeFileSync('./', 'aaa'))
+import('fs').then(f => f.writeFileSync('./filename.text', 'aaa'))

@@ -59,9 +59,6 @@ dependencies:
   qs:
     specifier: ^6.10.3
     version: 6.11.1
-  redis:
-    specifier: ^4.6.7
-    version: 4.6.7
   rxjs:
     specifier: ^6.6.7
     version: 6.6.7
@@ -73,7 +70,7 @@ dependencies:
     version: 10.9.1(@types/node@16.18.14)(typescript@4.9.5)
   typeorm:
     specifier: ^0.2.38
-    version: 0.2.45(ioredis@5.3.2)(mssql@9.1.1)(pg@8.10.0)(redis@4.6.7)
+    version: 0.2.45(ioredis@5.3.2)(mssql@9.1.1)(pg@8.10.0)
   uuid:
     specifier: ^8.3.2
     version: 8.3.2
@@ -103,6 +100,9 @@ devDependencies:
   eslint:
     specifier: ^7.32.0
     version: 7.32.0
+  sinon:
+    specifier: ^15.2.0
+    version: 15.2.0
   typescript:
     specifier: ^4.4.4
     version: 4.9.5
@@ -365,54 +365,35 @@ packages:
     resolution: {integrity: sha512-retLUN4TwCJ0QJDi9OCJwYVaXAz93NeOkEtEQL98M2bykBOxmURlP0YlfsuE46kItOOVZIWRYC3KsSLhQ1R2Qw==}
     dev: false
 
-  /@redis/bloom@1.2.0(@redis/client@1.5.8):
-    resolution: {integrity: sha512-HG2DFjYKbpNmVXsa0keLHp/3leGJz1mjh09f2RLGGLQZzSHpkmZWuwJbAvo3QcRY8p80m5+ZdXZdYOSBLlp7Cg==}
-    peerDependencies:
-      '@redis/client': ^1.0.0
+  /@sinonjs/commons@2.0.0:
+    resolution: {integrity: sha512-uLa0j859mMrg2slwQYdO/AkrOfmH+X6LTVmNTS9CqexuE2IvVORIkSpJLqePAbEnKJ77aMmCwr1NUZ57120Xcg==}
     dependencies:
-      '@redis/client': 1.5.8
-    dev: false
+      type-detect: 4.0.8
+    dev: true
 
-  /@redis/client@1.5.8:
-    resolution: {integrity: sha512-xzElwHIO6rBAqzPeVnCzgvrnBEcFL1P0w8P65VNLRkdVW8rOE58f52hdj0BDgmsdOm4f1EoXPZtH4Fh7M/qUpw==}
-    engines: {node: '>=14'}
+  /@sinonjs/commons@3.0.0:
+    resolution: {integrity: sha512-jXBtWAF4vmdNmZgD5FoKsVLv3rPgDnLgPbU84LIJ3otV44vJlDRokVng5v8NFJdCf/da9legHcKaRuZs4L7faA==}
     dependencies:
-      cluster-key-slot: 1.1.2
-      generic-pool: 3.9.0
-      yallist: 4.0.0
-    dev: false
+      type-detect: 4.0.8
+    dev: true
 
-  /@redis/graph@1.1.0(@redis/client@1.5.8):
-    resolution: {integrity: sha512-16yZWngxyXPd+MJxeSr0dqh2AIOi8j9yXKcKCwVaKDbH3HTuETpDVPcLujhFYVPtYrngSco31BUcSa9TH31Gqg==}
-    peerDependencies:
-      '@redis/client': ^1.0.0
+  /@sinonjs/fake-timers@10.3.0:
+    resolution: {integrity: sha512-V4BG07kuYSUkTCSBHG8G8TNhM+F19jXFWnQtzj+we8DrkpSBCee9Z3Ms8yiGer/dlmhe35/Xdgyo3/0rQKg7YA==}
     dependencies:
-      '@redis/client': 1.5.8
-    dev: false
+      '@sinonjs/commons': 3.0.0
+    dev: true
 
-  /@redis/json@1.0.4(@redis/client@1.5.8):
-    resolution: {integrity: sha512-LUZE2Gdrhg0Rx7AN+cZkb1e6HjoSKaeeW8rYnt89Tly13GBI5eP4CwDVr+MY8BAYfCg4/N15OUrtLoona9uSgw==}
-    peerDependencies:
-      '@redis/client': ^1.0.0
+  /@sinonjs/samsam@8.0.0:
+    resolution: {integrity: sha512-Bp8KUVlLp8ibJZrnvq2foVhP0IVX2CIprMJPK0vqGqgrDa0OHVKeZyBykqskkrdxV6yKBPmGasO8LVjAKR3Gew==}
     dependencies:
-      '@redis/client': 1.5.8
-    dev: false
+      '@sinonjs/commons': 2.0.0
+      lodash.get: 4.4.2
+      type-detect: 4.0.8
+    dev: true
 
-  /@redis/search@1.1.3(@redis/client@1.5.8):
-    resolution: {integrity: sha512-4Dg1JjvCevdiCBTZqjhKkGoC5/BcB7k9j99kdMnaXFXg8x4eyOIVg9487CMv7/BUVkFLZCaIh8ead9mU15DNng==}
-    peerDependencies:
-      '@redis/client': ^1.0.0
-    dependencies:
-      '@redis/client': 1.5.8
-    dev: false
-
-  /@redis/time-series@1.0.4(@redis/client@1.5.8):
-    resolution: {integrity: sha512-ThUIgo2U/g7cCuZavucQTQzA9g9JbDDY2f64u3AbAoz/8vE2lt2U37LamDUVChhaDA3IRT9R6VvJwqnUfTJzng==}
-    peerDependencies:
-      '@redis/client': ^1.0.0
-    dependencies:
-      '@redis/client': 1.5.8
-    dev: false
+  /@sinonjs/text-encoding@0.7.2:
+    resolution: {integrity: sha512-sXXKG+uL9IrKqViTtao2Ws6dy0znu9sOaP1di/jKGW1M6VssO8vlpXCQcpZ+jisQ1tTFAC5Jo/EOzFbggBagFQ==}
+    dev: true
 
   /@sqltools/formatter@1.2.5:
     resolution: {integrity: sha512-Uy0+khmZqUrUGm5dmMqVlnvufZRSK0FbYzVgp0UMstm+F5+W2/jnEEQyc9vo1ZR/E5ZI/B1WjjoTqBqwJL6Krw==}
@@ -875,6 +856,11 @@ packages:
     engines: {node: '>=0.3.1'}
     dev: false
 
+  /diff@5.1.0:
+    resolution: {integrity: sha512-D+mk+qE8VC/PAUrlAU34N+VfXev0ghe5ywmpqrawphmVZc1bEfn56uo9qpyGp1p4xpzOHkSW4ztBd6L7Xx4ACw==}
+    engines: {node: '>=0.3.1'}
+    dev: true
+
   /doctrine@3.0.0:
     resolution: {integrity: sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==}
     engines: {node: '>=6.0.0'}
@@ -1244,11 +1230,6 @@ packages:
     resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==}
     dev: false
 
-  /generic-pool@3.9.0:
-    resolution: {integrity: sha512-hymDOu5B53XvN4QT9dBmZxPX4CWhBPPLguTZ9MMFeFa/Kg0xWVfylOVNlJji/E7yTZWFd/q9GO5TxDLq156D7g==}
-    engines: {node: '>= 4'}
-    dev: false
-
   /get-caller-file@2.0.5:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
     engines: {node: 6.* || 8.* || >= 10.*}
@@ -1582,6 +1563,10 @@ packages:
       is-docker: 2.2.1
     dev: false
 
+  /isarray@0.0.1:
+    resolution: {integrity: sha512-D2S+3GLxWH+uhrNEcoh/fnmYeP8E8/zHl644d/jdA0g2uyXvy3sb0qxotE+ne0LtccHknQzWwZEzhak7oJ0COQ==}
+    dev: true
+
   /isarray@1.0.0:
     resolution: {integrity: sha512-VLghIWNM6ELQzo7zwmcg0NmTVyWKYjvIeM83yjp0wRDTmUnrM678fQbcKBo6n2CJEF0szoG//ytg+TKla89ALQ==}
     dev: false
@@ -1661,6 +1646,10 @@ packages:
       semver: 7.3.8
     dev: false
 
+  /just-extend@4.2.1:
+    resolution: {integrity: sha512-g3UB796vUFIY90VIv/WX3L2c8CS2MdWUww3CNrYmqza1Fg0DURc2K/O4YrnklBdQarSJ/y8JnJYDGc+1iumQjg==}
+    dev: true
+
   /jwa@1.4.1:
     resolution: {integrity: sha512-qiLX/xhEEFKUAJ6FiBMbes3w9ATzyk5W7Hvzpa/SLYdxNtng+gcurvrI7TbACjIXlsJyr05/S1oUhZrc63evQA==}
     dependencies:
@@ -1702,6 +1691,10 @@ packages:
   /lodash.defaults@4.2.0:
     resolution: {integrity: sha512-qjxPLHd3r5DnsdGacqOMU6pb/avJzdh9tFX2ymgoZE27BmjXrNy/y4LoaiTeAb+O3gL8AfpJGtqfX/ae2leYYQ==}
     dev: false
+
+  /lodash.get@4.4.2:
+    resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
+    dev: true
 
   /lodash.isarguments@3.1.0:
     resolution: {integrity: sha512-chi4NHZlZqZD18a0imDHnZPrDeBbTtVN7GXMwuGdRH9qotxAjYs3aVLKc7zNOG9eddR5Ksd8rvFEBc9SsggPpg==}
@@ -1813,6 +1806,16 @@ packages:
 
   /natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
+    dev: true
+
+  /nise@5.1.4:
+    resolution: {integrity: sha512-8+Ib8rRJ4L0o3kfmyVCL7gzrohyDe0cMFTBa2d364yIrEGMEoetznKJx899YxjybU6bL9SQkYPSBBs1gyYs8Xg==}
+    dependencies:
+      '@sinonjs/commons': 2.0.0
+      '@sinonjs/fake-timers': 10.3.0
+      '@sinonjs/text-encoding': 0.7.2
+      just-extend: 4.2.1
+      path-to-regexp: 1.8.0
     dev: true
 
   /node-abort-controller@3.1.1:
@@ -1929,6 +1932,12 @@ packages:
   /path-key@3.1.1:
     resolution: {integrity: sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==}
     engines: {node: '>=8'}
+    dev: true
+
+  /path-to-regexp@1.8.0:
+    resolution: {integrity: sha512-n43JRhlUKUAlibEJhPeir1ncUID16QnEjNpwzNdO3Lm4ywrBpBZ5oLD0I6br9evr1Y9JTqwRtAh7JLoOzAQdVA==}
+    dependencies:
+      isarray: 0.0.1
     dev: true
 
   /pg-connection-string@2.5.0:
@@ -2067,17 +2076,6 @@ packages:
       redis-errors: 1.2.0
     dev: false
 
-  /redis@4.6.7:
-    resolution: {integrity: sha512-KrkuNJNpCwRm5vFJh0tteMxW8SaUzkm5fBH7eL5hd/D0fAkzvapxbfGPP/r+4JAXdQuX7nebsBkBqA2RHB7Usw==}
-    dependencies:
-      '@redis/bloom': 1.2.0(@redis/client@1.5.8)
-      '@redis/client': 1.5.8
-      '@redis/graph': 1.1.0(@redis/client@1.5.8)
-      '@redis/json': 1.0.4(@redis/client@1.5.8)
-      '@redis/search': 1.1.3(@redis/client@1.5.8)
-      '@redis/time-series': 1.0.4(@redis/client@1.5.8)
-    dev: false
-
   /reflect-metadata@0.1.13:
     resolution: {integrity: sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg==}
     dev: false
@@ -2195,6 +2193,17 @@ packages:
       get-intrinsic: 1.2.0
       object-inspect: 1.12.3
     dev: false
+
+  /sinon@15.2.0:
+    resolution: {integrity: sha512-nPS85arNqwBXaIsFCkolHjGIkFo+Oxu9vbgmBJizLAhqe6P2o3Qmj3KCUoRkfhHtvgDhZdWD3risLHAUJ8npjw==}
+    dependencies:
+      '@sinonjs/commons': 3.0.0
+      '@sinonjs/fake-timers': 10.3.0
+      '@sinonjs/samsam': 8.0.0
+      diff: 5.1.0
+      nise: 5.1.4
+      supports-color: 7.2.0
+    dev: true
 
   /slice-ansi@4.0.0:
     resolution: {integrity: sha512-qMCMfhY040cVHT43K9BFygqYbUPFZKHOg7K73mtTWJRb8pyP3fzf4Ixd5SzdEJQ6MRUg/WBnOLxghZtKKurENQ==}
@@ -2396,6 +2405,11 @@ packages:
       prelude-ls: 1.2.1
     dev: true
 
+  /type-detect@4.0.8:
+    resolution: {integrity: sha512-0fr/mIH1dlO+x7TlcMy+bIDqKPsw/70tVyeHW787goQjhmqaZe10uwLujubK9q9Lg6Fiho1KUKDYz0Z7k7g5/g==}
+    engines: {node: '>=4'}
+    dev: true
+
   /type-fest@0.20.2:
     resolution: {integrity: sha512-Ne+eE4r0/iWnpAxD852z3A+N0Bt5RN//NjJwRd2VFHEmrywxf5vsZlh4R6lixl6B+wz/8d+maTSAkN1FIkI3LQ==}
     engines: {node: '>=10'}
@@ -2414,7 +2428,7 @@ packages:
     engines: {node: '>= 14'}
     dev: false
 
-  /typeorm@0.2.45(ioredis@5.3.2)(mssql@9.1.1)(pg@8.10.0)(redis@4.6.7):
+  /typeorm@0.2.45(ioredis@5.3.2)(mssql@9.1.1)(pg@8.10.0):
     resolution: {integrity: sha512-c0rCO8VMJ3ER7JQ73xfk0zDnVv0WDjpsP6Q1m6CVKul7DB9iVdWLRjPzc8v2eaeBuomsbZ2+gTaYr8k1gm3bYA==}
     hasBin: true
     peerDependencies:
@@ -2478,7 +2492,6 @@ packages:
       mkdirp: 1.0.4
       mssql: 9.1.1
       pg: 8.10.0
-      redis: 4.6.7
       reflect-metadata: 0.1.13
       sha.js: 2.4.11
       tslib: 2.3.1
