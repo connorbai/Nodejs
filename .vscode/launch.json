@@ -223,5 +223,20 @@
                 "${workspaceFolder}/src/stream/index.ts"
             ]
         },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "node_excel",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/node_excel/index.ts"
+            ]
+        },
     ]
 }

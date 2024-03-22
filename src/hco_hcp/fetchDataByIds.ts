@@ -10,10 +10,7 @@ const HCP_URL = 'https://lillycn.veevanetwork.com/api/v16.0/hcps/Network:Entity:
 const HCP_URL_BY_HCPID = 'https://lillycn.veevanetwork.com/api/v16.0/search?q=*&offset=0&limit=100&types=HCP&filters=lilly_hcp_id__c:CN-{HCP_ID}HCP'
 const HCO_URL_BY_HCID = 'https://lillycn.veevanetwork.com/api/v16.0/search?q=*&offset=0&limit=100&types=HCP&filters=lilly_hcp_id__c:CN-{HCP_ID}HCP'
 
-export const fetchDataByIds = async () => {
-    const ids = [
-        110268602, 110429562, 110210199, 110245326, 110428249, 110369987, 110451991, 110453247, 110268652, 110311270, 110416861, 110278790, 110271186, 110369965, 110271483, 110278080, 110347586,        
-    ];
+export const fetchDataByIds = async ids => {
     // await fetchByVeevaId(ids)
     // await fetchByHcpId(ids)
     await fetchByHcoId(ids)
@@ -30,9 +27,7 @@ const fetchByVeevaId = async (ids) => {
     const connection = (await datasource.getConnection())
     // const [,response] = await connection.query(`update cmd_owner.m_sales_prd set modifieddate=now();`)
     // const response = await connection.query(`INSERT INTO cmd_owner.api_credential(appid, appname) VALUES ('test', 'test');`)
-    const response = await connection.query(`INSERT INTO cmd_owner.api_credential(appid, appname) (SELECT appid, appname FROM cmd_owner.api_credential LIMIT 1) RETURNING ID`)
-
-
+    // const response = await connection.query(`INSERT INTO cmd_owner.api_credential(appid, appname) (SELECT appid, appname FROM cmd_owner.api_credential LIMIT 1) RETURNING ID`)
     for (const veevaId of ids) {
         const reponse = await request({
             url: _URI.replace('{VEEVA_ENTITY_ID}', veevaId),
@@ -47,9 +42,9 @@ const fetchByVeevaId = async (ids) => {
     console.log('----------done-------------')
 }
 
-const fetchByHcpId = async (ids) => {
-    let _URI = '/api/v16.0/search?q=*&offset=0&limit=100&types=HCP&filters=lilly_hcp_id__c:CN-{HCP_ID}HCP'
-    _URI += 'DELETED,UNDER_REVIEW,MERGED_INTO,MERGE_INACTIVATED,MERGE_ADDED,INVALID,VALID'
+export const fetchByHcpId = async (ids) => {
+    let _URI = '/api/v21.0/search?q=*&offset=0&limit=100&types=HCP&filters=lilly_hcp_id__c:CN-{HCP_ID}HCP'
+    // _URI += 'DELETED,UNDER_REVIEW,MERGED_INTO,MERGE_INACTIVATED,MERGE_ADDED,INVALID,VALID'
     const datasource = new DataSource()
     datasource.addVersion()
 
@@ -68,7 +63,7 @@ const fetchByHcpId = async (ids) => {
     console.log('----------done-------------')
 }
 
-const fetchByHcoId = async (ids) => {
+export const fetchByHcoId = async (ids) => {
     const _URI = '/api/v16.0/search?q=*&offset=0&limit=100&types=HCO&filters=lilly_hco_id__c:CN-{HCO_ID}HCO'
 
     const datasource = new DataSource()

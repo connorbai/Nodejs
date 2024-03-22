@@ -11,7 +11,7 @@ import { HcpClassificationCodeEnums } from './enum/hcp_enum'
 
 
 
-class Hcp {
+export class Hcp {
     private _datasource: DataSource
 
     constructor() {
@@ -20,6 +20,7 @@ class Hcp {
 
     async transformHcp({ version }: { version?: number} = {}) {
         const conn = await this._datasource.getConnection();
+        const defaultVersion = version || (await this._datasource.getVersion())
         // Truncate Table
         await conn.query(SQL.SrcDeleteData)
         await conn.query(SQL.SrcResetSequence)
@@ -29,7 +30,7 @@ class Hcp {
         const codeMap = {}
         _.each(ctgryGroup, (v, k) => codeMap[k] = _.zipObject(_.map(v, 'code'), _.map(v, 'name')))
         // data source
-        const jsonhcps = await conn.manager.find(Entities.VeevaOriginDataEntity, { where: { versionNumber: version }})
+        const jsonhcps = await conn.manager.find(Entities.VeevaOriginDataEntity, { where: { versionNumber: defaultVersion }})
     
         const hcpEntities = []
         const refEntities = []

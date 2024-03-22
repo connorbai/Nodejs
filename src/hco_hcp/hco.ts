@@ -21,14 +21,16 @@ export class Hco {
      * address
      */
     async transformHco({ version }: {version?:number} = {}) {
-        if(!version) throw new Error('version is required')
         const conn = await this._datasource.getConnection();
+        const defaultVersion = version || (await this._datasource.getVersion())
+        if(!defaultVersion) throw new Error('version is required')
+        console.log('-----------defaultVersion------------', defaultVersion)
         // Truncate Table
         await conn.query(SQL.SrcDeleteData)
         await conn.query(SQL.SrcResetSequence)
         console.log('-----------Truncate Table------------', )
 
-        const jsonEntities = await conn.manager.find(Entities.VeevaOriginDataEntity, { where: { versionNumber: version }})
+        const jsonEntities = await conn.manager.find(Entities.VeevaOriginDataEntity, { where: { versionNumber: defaultVersion }})
         // handle
         for (const info of jsonEntities) {
             const { jsonData: { entities } } = (info as any);

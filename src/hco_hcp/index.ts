@@ -4,11 +4,14 @@ import 'dotenv/config'
 
 
 import { Hco } from './hco'
+import { Hcp } from './hcp'
 import { fetchDataByUrl } from './fetchByUrl'
-import { fetchDataByIds } from './fetchDataByIds'
+import { fetchByHcoId, fetchDataByIds } from './fetchDataByIds'
 
 
 export const main = async () => {
+    const ids = [111]
+    const type: string = 'HCO'
     // const auth = new AuthorizationService();
     // await auth.fetchSession()
     
@@ -16,15 +19,18 @@ export const main = async () => {
     // dataSource.setDataType(TypeEnum.HCOVEEVAURL);
     // dataSource.setJsonFileDirectory(resolve(__dirname, './static/json_data'));
     // await dataSource.fetchData();
-    
-    // const res = await fetchDataByUrl()
-    const res = await fetchDataByIds()
+    process.env.VEEVA_SESSION = 'test'
 
-    // const hco = new Hco()
-    // await hco.transformHco({ version: 36 })
+    if(type == 'HCO') {
+        const res = await fetchByHcoId(ids)
+        const hco = new Hco()
+        await hco.transformHco({ version: -1 })
+    }
 
-    // const hcp = new Hcp()
-    // await hcp.transformHcp({ version: 32 })
+    if(type == 'HCP') {
+        const hcp = new Hcp()
+        await hcp.transformHcp({ version: -1 })
+    }
 }
 
 
