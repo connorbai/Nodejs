@@ -1,9 +1,8 @@
-import { Column } from '../../../core/typeorm-extension/column-decorator';
-import { Entity } from '../../../core/typeorm-extension/entity-decorator';
-import { BaseEntity } from '../../../core';
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, VersionColumn } from "typeorm";
+import { BaseModel } from "./base.entity";
 
 @Entity('m_rltn_slv_ctgry', { schema: 'cmd_owner' })
-export class MRltnSlvCtgryEntity extends BaseEntity {
+export class MRltnSlvCtgryEntity extends BaseModel {
   @Column('int4', { name: 'sleeve_id' })
   sleeveId: number;
 

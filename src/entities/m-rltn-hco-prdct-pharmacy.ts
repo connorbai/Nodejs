@@ -1,9 +1,8 @@
-import { Column } from '../../../core/typeorm-extension/column-decorator';
-import { Entity } from '../../../core/typeorm-extension/entity-decorator';
-import { BaseEntity } from '../../../core';
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, VersionColumn } from "typeorm";
+import { BaseModel } from "./base.entity";
 
 @Entity('m_rltn_hco_prdct_pharmacy', { schema: 'cmd_owner' })
-export class MRltnHcoPrdctPharmacyEntity extends BaseEntity {
+export class MRltnHcoPrdctPharmacyEntity extends BaseModel {
   @Column('int4', { name: 'year_month' })
   yearMonth: number;
 

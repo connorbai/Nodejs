@@ -4,8 +4,8 @@ import { BaseModel } from "./base.entity";
 @Entity({ schema: 'cmd_owner', name: 'm_prdct' })
 export class MPrdctEntity extends BaseModel {
 
-    @PrimaryGeneratedColumn({ name: 'id' })
-    id: number;
+    // @PrimaryGeneratedColumn({ name: 'id' })
+    // id: number;
 
     @Column({ name: 'prdct_name_cn', nullable: true })
     public prdctNameCn: string;
@@ -70,21 +70,21 @@ export class MPrdctEntity extends BaseModel {
     @Column('int4', { name: 'star_id' })
     starId: number;
 
-    @Column({ name: "createdUser", nullable: true })
-    public createdUser?: string;
+    // @Column({ name: "createdUser", nullable: true })
+    // public createdUser?: string;
 
-    @Column({ name: "createdDate", type: "timestamp", nullable: true })
-    public createdDate?: Date;
+    // @Column({ name: "createdDate", type: "timestamp", nullable: true })
+    // public createdDate?: Date;
 
-    @Column({ name: "modifiedUser", nullable: true })
-    public modifiedUser?: string;
+    // @Column({ name: "modifiedUser", nullable: true })
+    // public modifiedUser?: string;
 
-    @Column({ name: "modifiedDate", type: "timestamp", nullable: true })
-    public modifiedDate?: Date;
+    // @Column({ name: "modifiedDate", type: "timestamp", nullable: true })
+    // public modifiedDate?: Date;
 
-    @Column({ name: "isDeleted", default: false })
-    public isDeleted?: boolean;
+    // @Column({ name: "isDeleted", default: false })
+    // public isDeleted?: boolean;
 
-    @VersionColumn({ name: "versionNumber", nullable: true })
-    public versionNumber?: number;
+    // @VersionColumn({ name: "versionNumber", nullable: true })
+    // public versionNumber?: number;
 }

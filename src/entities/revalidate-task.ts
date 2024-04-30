@@ -1,9 +1,8 @@
-import { Column } from '../../../core/typeorm-extension/column-decorator';
-import { Entity } from '../../../core/typeorm-extension/entity-decorator';
-import { BaseEntity } from '../../../core';
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, VersionColumn } from "typeorm";
+import { BaseModel } from "./base.entity";
 
 @Entity('revalidate_task', { schema: 'cmd_owner' })
-export class RevalidateTaskEntity extends BaseEntity {
+export class RevalidateTaskEntity extends BaseModel {
   @Column('varchar', { name: 'filename', length: 255 })
   filename: string;
 

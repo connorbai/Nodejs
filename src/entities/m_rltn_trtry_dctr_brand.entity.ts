@@ -1,7 +1,8 @@
 import { BaseEntity, Column, Entity } from "typeorm";
+import { BaseModel } from "./base.entity";
 
 @Entity('m_rltn_trtry_dctr_brand', { schema: 'cmd_owner' })
-export class MRltnTrtryDctrBrandEntity extends BaseEntity {
+export class MRltnTrtryDctrBrandEntity extends BaseModel {
   @Column('integer', { name: 'cycle' })
   cycle: number;
 
@@ -29,10 +30,10 @@ export class MRltnTrtryDctrBrandEntity extends BaseEntity {
   @Column('character varying', { name: 'ctgry_nm', length: 100 })
   ctgryNm: number;
 
-  @Column({ name: 'efctv_start_dt', type: 'datetime', nullable: true })
+  @Column({ name: 'efctv_start_dt', type: 'timestamp', nullable: true })
   public efctvStartDt?: Date;
 
-  @Column({ name: 'efctv_end_dt', type: 'datetime', nullable: true })
+  @Column({ name: 'efctv_end_dt', type: 'timestamp', nullable: true })
   public efctvEndDt?: Date;
 
   @Column({ name: "cc", type: "integer", nullable: true })

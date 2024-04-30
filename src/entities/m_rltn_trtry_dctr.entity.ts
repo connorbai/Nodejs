@@ -1,9 +1,8 @@
-import { Column } from '../../../core/typeorm-extension/column-decorator';
-import { Entity } from '../../../core/typeorm-extension/entity-decorator';
-import { BaseEntity } from '../../../core';
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, VersionColumn } from "typeorm";
+import { BaseModel } from "./base.entity";
 
 @Entity('m_rltn_trtry_dctr', { schema: 'cmd_owner' })
-export class MRltnTrtryDctrEntity extends BaseEntity {
+export class MRltnTrtryDctrEntity extends BaseModel {
   @Column('integer', { name: 'cycle' })
   cycle: number;
 
@@ -25,10 +24,10 @@ export class MRltnTrtryDctrEntity extends BaseEntity {
   @Column('character varying', { name: 'algnmnt_id', length: 100 })
   algnmntId: string;
 
-  @Column({ name: 'efctv_start_dt', type: 'datetime', nullable: true })
+  @Column({ name: 'efctv_start_dt', type: 'timestamp', nullable: true })
   public efctvStartDt?: Date;
 
-  @Column({ name: 'efctv_end_dt', type: 'datetime', nullable: true })
+  @Column({ name: 'efctv_end_dt', type: 'timestamp', nullable: true })
   public efctvEndDt?: Date;
 
   @Column({ name: "cc", type: "integer", nullable: true })

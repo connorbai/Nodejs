@@ -1,9 +1,8 @@
-import { Column } from '../../../core/typeorm-extension/column-decorator';
-import { Entity } from '../../../core/typeorm-extension/entity-decorator';
-import { BaseEntity } from '../../../core';
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, VersionColumn } from "typeorm";
+import { BaseModel } from "./base.entity";
 
 @Entity('m_slv', { schema: 'cmd_owner' })
-export class MSLVEntity extends BaseEntity {
+export class MSLVEntity extends BaseModel {
   @Column('varchar', { name: 'sleeve_name' })
   sleeveName: string | null;
 

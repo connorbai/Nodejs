@@ -11,10 +11,10 @@ export class IAdsCustAlgnmntEntity {
   @Column('character varying', { name: 'cust_id', length: 200 })
   custId: string;
 
-  @Column({ name: 'cust_algnmnt_strt_dt', type: 'datetime' })
+  @Column({ name: 'cust_algnmnt_strt_dt', type: 'timestamp' })
   public custAlgnmntStrtDt: Date;
 
-  @Column({ name: 'cust_algnmnt_end_dt', type: 'datetime' })
+  @Column({ name: 'cust_algnmnt_end_dt', type: 'timestamp' })
   public custAlgnmntEndDt: Date;
 
   @Column('character varying', { name: 'cust_typ_cd', length: 40 })
@@ -29,10 +29,10 @@ export class IAdsCustAlgnmntEntity {
   @Column('character varying', { name: 'crm_sync_flg', length: 40 })
   crmSyncFlg: string;
 
-  @Column({ name: 'ods_ld_dt', type: 'datetime' })
+  @Column({ name: 'ods_ld_dt', type: 'timestamp' })
   public odsLdDt: Date;
 
-  @Column({ name: 'ods_lst_updt_dt', type: 'datetime' })
+  @Column({ name: 'ods_lst_updt_dt', type: 'timestamp' })
   public odsLstUpdtDt: Date;
 
   @Column('character varying', { name: 'src_sys_cd', length: 200 })

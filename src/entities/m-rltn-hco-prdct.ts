@@ -1,7 +1,8 @@
 import { BaseEntity, Column, Entity } from "typeorm";
+import { BaseModel } from "./base.entity";
 
 @Entity('m_rltn_hco_prdct', { schema: 'cmd_owner' })
-export class MRltnHcoPrdctEntity extends BaseEntity {
+export class MRltnHcoPrdctEntity extends BaseModel {
   @Column('int4', { name: 'year_month' })
   yearMonth: number;
 
