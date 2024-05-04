@@ -1,17 +1,19 @@
-import { createConnection, useContainer } from 'typeorm'
-import { Container as typeormContainer } from "typeorm-typedi-extensions";
-import { Container } from "typedi";
-import { User } from './user'
-import { AppMain } from "./main";
+import 'reflect-metadata';
 import { Validator } from 'class-validator';
+import { Container } from "typedi";
+import { useContainer } from 'typeorm';
+import { Container as typeormContainer } from "typeorm-typedi-extensions";
 import { createDatabase } from './database';
+import { AppMain } from "./main";
 
 useContainer(typeormContainer)
 
 async function bootstrap() {
   
-  const validator = new Validator()
-  Container.set(Validator, validator)
+  // do this somewhere in the global application level:
+  // validatorUseContainer(Container);
+  const validator = new Validator();
+  Container.set(Validator, validator);
 
   await createDatabase()
 
