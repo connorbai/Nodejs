@@ -31,6 +31,36 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "class-validator",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/class-validator/index.ts"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "mathjs",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/mathjs/index.ts"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "main",
             "env": {
                 "TS_NODE_TRANSPILE_ONLY": "true"

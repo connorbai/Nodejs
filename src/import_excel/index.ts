@@ -10,7 +10,7 @@ import 'dotenv/config'
 /**
  * BiRongLe/QianYongQiang
  */
-const prefix = 'BiRongLe'
+const prefix = 'QianYongQiang'
 
 const UserMapping = {
     BiRongLe: '8a5f6390f5dc434cb8b36c30f2743e6e',
