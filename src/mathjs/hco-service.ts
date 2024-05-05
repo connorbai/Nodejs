@@ -3,17 +3,25 @@ import { InjectRepository } from "typeorm-typedi-extensions";
 import { User } from "./user";
 import { Repository } from "typeorm";
 import { zip, zipObject, zipWith } from "lodash";
+import { BaseService } from "./baseService";
 
 @Service()
-export class HcoService {
-  @InjectRepository(User)
-  private userRepository: Repository<User>;
+export class HcoService implements BaseService {
 
   users: User[]
   usersMap: {[x: string]: User};
 
-  public async userExist(user: User): Promise<boolean> {
-    const result =  await this.userRepository.find({where: {email: user.email}})
+  @InjectRepository(User)
+  private userRepository: Repository<User>;
+
+  async init() {
+    const users = await this.userRepository.find()
+    this.users = users
+    this.usersMap = zipObject<User>(users.map(v => v.name), users)
+  };
+
+  public userExist(name: string): boolean {
+    const result = this.usersMap[name]
     return result ? true : false;
   }
 
@@ -27,8 +35,8 @@ export class HcoService {
         SELECT * FROM user;
     `)
     this.users = users
-    this.usersMap = zipObject<User>(users.map(v => users.id), users)
+    
   }
 
-
 }
+

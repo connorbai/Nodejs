@@ -20,6 +20,7 @@ specifiers:
   ioredis: ^5.3.2
   isutf8: ^3.1.1
   lodash: ^4.17.21
+  lodash-es: ^4.17.21
   mathjs: ^11.10.0
   moment: ^2.29.4
   mssql: ^9.0.1
@@ -52,6 +53,7 @@ dependencies:
   ioredis: 5.3.2
   isutf8: 3.1.1
   lodash: 4.17.21
+  lodash-es: 4.17.21
   mathjs: 11.10.0
   moment: 2.29.4
   mssql: 9.0.1
@@ -1763,6 +1765,10 @@ packages:
       flat: 5.0.2
       jiti: 1.21.0
       yaml: 2.4.2
+    dev: false
+
+  /lodash-es/4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
     dev: false
 
   /lodash.defaults/4.2.0:
