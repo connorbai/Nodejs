@@ -14,3 +14,4 @@ export * from './m-rltn-hco-prdct';
 export * from './m-rltn-hco-prdct-pharmacy';
 export * from './m-rltn-base-city.entity';
 export * from './revalidate-task';
+export * from './m_hco.entity';

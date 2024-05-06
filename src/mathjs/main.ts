@@ -1,8 +1,5 @@
 import { Container } from 'typedi';
-import { HcoService } from './hco-service';
 import { Validator } from 'class-validator';
-import { globalArgsStorage } from './global-args-storage';
-import { SOURCE_TYPE } from './enum';
 
 export async function AppMain(model) {
     // const postService = Container.get(HcoService)

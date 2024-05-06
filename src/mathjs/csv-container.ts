@@ -1,26 +1,33 @@
 import { BaseService } from "./baseService"
 
+export function create(fn) {
+    const app  = new CSVContainer()
+    app.setTarget(fn)
+    return app
+}
+
+
 export class CSVContainer {
 
 
-    static target: any
-    static model: any
-    static dataSource = new Set<BaseService>()
+    target: any
+    model: any
+    dataSource = new Set<BaseService>()
 
-    static create(target) {
+    setTarget(target) {
         this.target = target
         return this
     }
 
-    static setModel(model) {
+    setModel(model) {
         this.model = model
     }
 
-    static addDataSource(service) {
+    addDataSource(service) {
         this.dataSource.add(service)
     }
 
-    static async execute() {
+    async execute() {
         const promiseAll = []
         this.dataSource.forEach(s => promiseAll.push(s.init()))
         await Promise.all(promiseAll)

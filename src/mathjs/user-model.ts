@@ -1,5 +1,6 @@
 import { IsEmail, IsNotEmpty, IsNumberString, IsString } from "class-validator";
 import { IsUserAlreadyExist } from "./hco-validator";
+import { ColumnName } from "./decorator";
 
 
 
@@ -14,13 +15,12 @@ export class UserModel {
 
   @IsUserAlreadyExist({ message: 'user is not exist'})
   @IsNotEmpty({ message: 'name should not be empty'})
+  @ColumnName({ name: '*YearMonth', column: 0 })
   name: string
 
-  // @IsString()
+  @ColumnName({ name: '*GK', column: 1 })
   username: string;
 
-  // @IsEmail()
+  @ColumnName({ name: '*GK', column: 1 })
   email: string;
-
-  password: string;
 }

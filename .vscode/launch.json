@@ -19,6 +19,21 @@
             ],
         },
         {
+            "name": "decorator1",
+            "type": "node",
+            "request": "launch",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/decorator/index.ts"
+            ]
+        },
+        {
             "name": "node-sql-parser",
             "type": "node",
             "request": "launch",
