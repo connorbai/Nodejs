@@ -1,7 +1,7 @@
 import Container from "typedi"
 import { BaseService } from "../services/baseService"
 
-export function create(fn) {
+export function factoryCreate(fn) {
     const app  = new CSVContainer()
     app.setTarget(fn)
     return app

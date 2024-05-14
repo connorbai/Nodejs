@@ -6,7 +6,7 @@ import { Container as typeormContainer } from "typeorm-typedi-extensions";
 import { useContainer as validatorUseContainer } from "class-validator";
 import { createDatabase } from './core/database';
 import { AppMain } from "./core/main";
-import { create } from './core/csv-container';
+import { factoryCreate } from './core/csv-container';
 import { Test1 } from './model/td-model';
 import { HcpService } from './services/hcp-service';
 
@@ -19,7 +19,7 @@ Container.set(Validator, new Validator());
 async function bootstrap() {
   await createDatabase()
 
-  const app = create(AppMain)
+  const app = factoryCreate(AppMain)
 
   // app.setFile
 
