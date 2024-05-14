@@ -4,11 +4,11 @@ import { Container } from "typedi";
 import { useContainer as typeormUseContainer } from 'typeorm';
 import { Container as typeormContainer } from "typeorm-typedi-extensions";
 import { useContainer as validatorUseContainer } from "class-validator";
-import { createDatabase } from './database';
-import { AppMain } from "./main";
-import { create } from './csv-container';
-import { UserModel } from './user-model';
-import { HcoService } from './hco-service';
+import { createDatabase } from './core/database';
+import { AppMain } from "./core/main";
+import { create } from './core/csv-container';
+import { Test1 } from './model/td-model';
+import { HcpService } from './services/hcp-service';
 
 // do this somewhere in the global application level:
 validatorUseContainer(Container, { fallbackOnErrors: true });
@@ -21,9 +21,11 @@ async function bootstrap() {
 
   const app = create(AppMain)
 
-  app.setModel(UserModel)
+  // app.setFile
 
-  app.addDataSource(HcoService)
+  app.setModel(Test1)
+
+  app.addDataSource(HcpService)
 
   await app.execute()
 

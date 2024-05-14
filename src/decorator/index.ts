@@ -20,7 +20,7 @@ import { random } from 'lodash-es';
 // import * as entities from '../entities'
 
 import { MHcoEntity } from '../entities/m_hco.entity';
-import { ColumnName } from './mathjs/decorator';
+import { ColumnName } from '../mathjs1/core/decorator';
 
 // useContainer(Container);
 

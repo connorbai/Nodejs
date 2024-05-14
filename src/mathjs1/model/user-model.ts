@@ -1,6 +1,7 @@
 import { IsEmail, IsNotEmpty, IsNumberString, IsString } from "class-validator";
-import { IsUserAlreadyExist } from "./hco-validator";
-import { ColumnName } from "./decorator";
+import { ColumnName } from "../core/decorator";
+import { IsHcpExist } from "../validator/hcp-validator";
+import { column } from "mathjs";
 
 
 
@@ -13,7 +14,7 @@ export class UserModel {
     Object.assign(this, obj)
   }
 
-  @IsUserAlreadyExist({ message: 'user is not exist'})
+  // @IsUserAlreadyExist({ message: 'user is not exist'})
   @IsNotEmpty({ message: 'name should not be empty'})
   @ColumnName({ name: '*YearMonth', column: 0 })
   name: string
@@ -24,3 +25,5 @@ export class UserModel {
   @ColumnName({ name: '*GK', column: 1 })
   email: string;
 }
+
+

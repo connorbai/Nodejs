@@ -1,18 +1,23 @@
 import { createConnection } from "typeorm";
-import { User } from "./user";
+import * as entities from "../entities";
 
 export async function createDatabase() {
     const conn = await createConnection({
         name: 'default',
         "type": "postgres",
-        "schema": "public",
-        "database": "postgres",
-        "host": "127.0.0.1",
+        "schema": "cmd_owner",
+        "database": "cmds",
+        // "host": "127.0.0.1",
+        // "port": 5432,
+        // "username": "root",
+        // "password": "123456",
+        
+        "host": "192.168.100.46",
         "port": 5432,
-        "username": "root",
-        "password": "123456",
+        "username": "postgres",
+        "password": "Win2008",
         // "entities": Object.values(Entities),
-        "entities": [User],
+        "entities": Object.values(entities),
         logging: 'all'
       })
       .catch(error => {

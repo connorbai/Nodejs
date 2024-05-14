@@ -1,4 +1,5 @@
-import { BaseService } from "./baseService"
+import Container from "typedi"
+import { BaseService } from "../services/baseService"
 
 export function create(fn) {
     const app  = new CSVContainer()
@@ -12,7 +13,7 @@ export class CSVContainer {
 
     target: any
     model: any
-    dataSource = new Set<BaseService>()
+    dataSource: BaseService[] = []
 
     setTarget(target) {
         this.target = target
@@ -24,13 +25,13 @@ export class CSVContainer {
     }
 
     addDataSource(service) {
-        this.dataSource.add(service)
+        this.dataSource.push(service)
     }
 
     async execute() {
-        const promiseAll = []
-        this.dataSource.forEach(s => promiseAll.push(s.init()))
-        await Promise.all(promiseAll)
+        const instances: BaseService[] = this.dataSource.map(v => Container.get(v as any))
+
+        await Promise.all(instances.map(v => v.init()))
         await this.target(this.model)
     }
 }
