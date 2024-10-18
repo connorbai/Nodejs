@@ -1,24 +1,21 @@
-import { createConnection } from "typeorm";
-import * as entities from "../entities";
+const { createConnection } = require('typeorm');
 
-export async function createDatabase() {
+async function createDatabase() {
+  console.log('------------conn start-----------:', )
     const conn = await createConnection({
         name: 'default',
         "type": "postgres",
-        "schema": "cmd_owner",
-        "database": "cmds",
-        // "host": "127.0.0.1",
-        // "port": 5432,
-        // "username": "root",
-        // "password": "123456",
-        
-        "host": "192.168.100.46",
+        "schema": "public",
+        "database": "postgres",
+        "host": "dify-db.clzbxkoauro6.ap-southeast-1.rds.amazonaws.com",
         "port": 5432,
         "username": "postgres",
-        "password": "Win2008",
-        // "entities": Object.values(Entities),
-        "entities": Object.values(entities),
-        logging: 'all'
+        "password": "wRm3EXzI6SxlVuICuBtL",
+        logging: 'all',
+        connectionTimeout: 10e3,
+        options: {
+          encrypt: false
+        }
       })
       .catch(error => {
         console.error(`Couldn't connect to the database!`);
@@ -26,3 +23,5 @@ export async function createDatabase() {
       });
       console.log('------------conn-----------:', conn)
 }
+
+createDatabase()

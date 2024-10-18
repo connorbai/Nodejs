@@ -1,6 +1,7 @@
 
 import { v4 as uuidv4 } from 'uuid';
-import xlsx from 'node-xlsx'
+import nodexlsx from 'node-xlsx'
+import xlsx from 'xlsx'
 import fsx from 'fs-extra'
 import _ from 'lodash'
 import { add } from 'mathjs'
@@ -13,26 +14,67 @@ const prefix = 'BiRongLe'
 
 
 export async function main() {
-    const sheets = xlsx.parse('D:/tmp/debug/assign_precision_issue2.csv', { raw: true })
-    const [sheet] = sheets
-    const {name, data} = sheet
-    const arr = data.map(v => v[11])
-    arr.shift()
-    const sum = arr.reduce((pre, next) => {
-        return add(pre, next)
-    }, 0)
 
-    let indexPriceArr: any = [];
-    _.forEach(arr, v => indexPriceArr.push(v));
+    createExcelWithBackgroundColor()
 
-    let indexPriceTotal = 0;
-    _.forEach(indexPriceArr, num => (indexPriceTotal = add(indexPriceTotal, num)));
+}
 
-    const a1 = Number(`${indexPriceTotal}`.slice(0, 16));
+const ExcelJS = require('exceljs');  
+async function createExcelWithBackgroundColor() {  
+    // 创建一个新的工作簿  
+    const workbook = new ExcelJS.Workbook();  
+    const worksheet = workbook.addWorksheet('MySheet');  
 
-    console.log('sheets: ', sheet);
-    
+    // 添加一些数据  
+    worksheet.addRow(['Hello', 'World']);  
+    worksheet.addRow(['ExcelJS', 'is awesome']);  
 
+    // 设置背景色  
+    const cell = worksheet.getCell('A1');  
+    cell.fill = {  
+        type: 'pattern',  
+        pattern: 'solid',  
+        fgColor: { argb: 'FF00FF00' } // 背景色为绿色  
+    };  
+
+    const cellB1 = worksheet.getCell('B1');  
+    cellB1.fill = {  
+        type: 'pattern',  
+        pattern: 'solid',  
+        fgColor: { argb: 'FFFF0000' } // 背景色为红色  
+    };  
+
+    // 保存文件  
+    await workbook.xlsx.writeFile('example.xlsx');  
+    console.log('Excel file created with background colors!');  
+}
+
+function test2() {
+    const workbook = xlsx.utils.book_new()
+    const worksheetdata = [
+        ['Name', 'Age'],
+        ['Alice', 123456789.12],
+        ['Bob', 123456789.12],
+    ]
+
+    const worksheet = xlsx.utils.aoa_to_sheet(worksheetdata)
+
+    const cellStyle = {
+        fill: {
+            fgColor: { rgb: 'FF0000' }
+        },
+        font: {
+            color: { rgb: 'FFFFFF' },
+            bold: true,
+        },
+        numFmt: '#,##0.00'
+    }
+
+    worksheet['B2'].s = cellStyle
+    worksheet['B3'].s = cellStyle
+
+    xlsx.utils.book_append_sheet(workbook, worksheet, 'sheet_test')
+    xlsx.writeFile(workbook, 'test1.xlsx')
 }
 
 
