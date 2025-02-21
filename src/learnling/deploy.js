@@ -4,9 +4,6 @@ const _ = require('lodash')
 const moment = require('moment')
 const fs = require('fs')
 const fse = require('fs-extra')
-const xls = require('node-xlsx')
-const path = require('path')
-const { loadFile } = require('../common/load_file')
 const child_process = require('child_process')
 
 async function fn(environment) {

@@ -5,6 +5,38 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "tsx",
+            "type": "node",
+            "request": "launch",
+            // Debug current file in VSCode
+            "program": "${file}",
+            /*
+             * Path to tsx binary
+             * Assuming locally installed
+             */
+            "runtimeExecutable": "tsx",
+            /*
+             * Open terminal when debugging starts (Optional)
+             * Useful to see console.logs
+             */
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            // Files to exclude from debugger (e.g. call stack)
+            "skipFiles": [
+                // Node.js internal core modules
+                "<node_internals>/**",
+                // Ignore all dependencies (optional)
+                "${workspaceFolder}/node_modules/**",
+            ],
+        },
+        {
+            "name": "Test.js",
+            "program": "${workspaceFolder}/Test.js",
+            "request": "launch",
+            "skipFiles": ["<node_internals>/**"],
+            "type": "node"
+        },
+        {
             "name": "mobx.js",
             "program": "${workspaceFolder}/src/mobx/index.js",
             "request": "launch",
@@ -76,21 +108,6 @@
             ],
             "args": [
                 "${workspaceFolder}/node-sql-parser/index.ts"
-            ]
-        },
-        {
-            "name": "markdown",
-            "type": "node",
-            "request": "launch",
-            "env": {
-                "TS_NODE_TRANSPILE_ONLY": "true"
-            },
-            "runtimeArgs": [
-                "-r",
-                "ts-node/register"
-            ],
-            "args": [
-                "${workspaceFolder}/markdown/index.ts"
             ]
         },
         {
