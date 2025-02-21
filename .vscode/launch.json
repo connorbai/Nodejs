@@ -1,0 +1,376 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "mobx.js",
+            "program": "${workspaceFolder}/src/mobx/index.js",
+            "request": "launch",
+            "skipFiles": [ "<node_internals>/**" ],
+            "type": "node"
+        },
+        {
+            "name": "firebase",
+            "type": "node",
+            "request": "launch",
+            "env": { "TS_NODE_TRANSPILE_ONLY": "true" },
+            "runtimeArgs": [ "-r", "ts-node/register" ],
+            "args": [ "${workspaceFolder}/src/firebase/index.ts" ],
+        },
+        {
+            "name": "subject",
+            "type": "node",
+            "request": "launch",
+            "env": { "TS_NODE_TRANSPILE_ONLY": "true" },
+            "runtimeArgs": [ "-r", "ts-node/register" ],
+            "args": [ "${workspaceFolder}/src/subject/index.ts" ],
+        },
+        {
+            "name": "rxjs_1",
+            "type": "node",
+            "request": "launch",
+            "env": { "TS_NODE_TRANSPILE_ONLY": "true" },
+            "runtimeArgs": [ "-r", "ts-node/register" ],
+            "args": [ "${workspaceFolder}/src/rxjs_1/index.ts" ],
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "decorator",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/src/decorator/index.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "outFiles": [
+                "${workspaceFolder}/dist/**/*.js"
+            ],
+        },
+        {
+            "name": "decorator1",
+            "type": "node",
+            "request": "launch",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/decorator/index.ts"
+            ]
+        },
+        {
+            "name": "node-sql-parser",
+            "type": "node",
+            "request": "launch",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/node-sql-parser/index.ts"
+            ]
+        },
+        {
+            "name": "markdown",
+            "type": "node",
+            "request": "launch",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/markdown/index.ts"
+            ]
+        },
+        {
+            "name": "express",
+            "type": "node",
+            "request": "launch",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/express/main.ts"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "test",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/index.js"
+        },
+        {
+            "name": "Debug Mocha Tests",
+            "type": "node",
+            "request": "attach",
+            "port": 9229,
+            "continueOnAttach": true,
+            "autoAttachChildProcesses": false,
+            "resolveSourceMapLocations": [
+                "!**/node_modules/**",
+                "!**/.vscode/extensions/hbenl.vscode-mocha-test-adapter-*/**"
+            ],
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "class-validator",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/class-validator/index.ts"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "mathjs",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/mathjs1/index.ts"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "main",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/main.ts"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "lambda-api",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/lambda-api/index.ts"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "moment",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/moment/index.ts"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "HCPHCO",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/hco_hcp/index.ts"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Tree",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/tree/index.ts"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "TransformSiemens",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/import_excel/index.ts"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "draft",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/draft/index.ts"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "aws",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/aws/index.ts"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "utils",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/utils/index.ts"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Veeva Dict",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/veeva_dict/index.ts"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "repository",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/repository/index.ts"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "redis",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/redis_1/index.ts"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "stream",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/stream/index.ts"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "node_excel",
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            },
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/node_excel/index.ts"
+            ]
+        },
+    ]
+}
